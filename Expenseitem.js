@@ -1,37 +1,41 @@
-// return (
-// <div className='expense-item'>
-// <ExpenseDate date ={props.date} />
-// <ExpenseDetails amount={props.amount}  location={props.location}   title={props.title} />
-// <div>)
-import React from "react";
+import React,{ useState } from "react";
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 import "./Expenseitem.css";
 //import ExpenseDetails from './ExpenseDetails';
 
-function ExpenseItem(props) {
-  //now we acces the the outside of data
+const ExpenseItem=(props)=> {
+ 
+const [title, setTitle] = useState(props.title);
+//console.log('expenseItem evaluated by React')
+const [amount, setAmount]= useState(props.amount)
 
-  //nw we adding add eventliistner that takes the 'function' 
-  const Clickhandler=()=>{
-    console.log('clicked');
+  //nw to change the 'title'
+ 
+  const Clickhandler= () =>{
+    setTitle('Updated');
+    console.log(title)
+  }
+
+  const ExpenseHandler=()=>{
+    setAmount(100)
+    console.log(amount)
   }
 
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
-        <h2>{props.title} </h2>
-        <div className="expense-item__price">Rs. {props.amount}</div>
+        <h2>{title} </h2>
+        <div className="expense-item__price">Rs. {amount}</div>
       </div>
       {/* <ExpenseDetails amount={props.amount} 
 title={props.title} />  */}
 
-
-      <button onClick={Clickhandler}>Dletet Expense</button>
+ 
+      <button onClick={Clickhandler}>Change Title</button>
+      <button onClick={ExpenseHandler}>Change Expense</button>
     </Card>
   );
 }
-// we need to export thz function otherwise its only
-//usable inside of file & thats not helpful us
 export default ExpenseItem;
