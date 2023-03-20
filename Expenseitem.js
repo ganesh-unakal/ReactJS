@@ -1,17 +1,37 @@
-import './Expenseitem.css';
+// return (
+// <div className='expense-item'>
+// <ExpenseDate date ={props.date} />
+// <ExpenseDetails amount={props.amount}  location={props.location}   title={props.title} />
+// <div>)
+import React from "react";
+import ExpenseDate from "./ExpenseDate";
+import Card from "../UI/Card";
+import "./Expenseitem.css";
+//import ExpenseDetails from './ExpenseDetails';
+
+function ExpenseItem(props) {
+  //now we acces the the outside of data
+
+  //nw we adding add eventliistner that takes the 'function' 
+  const Clickhandler=()=>{
+    console.log('clicked');
+  }
+
+  return (
+    <Card className="expense-item">
+      <ExpenseDate date={props.date} />
+      <div className="expense-item__description">
+        <h2>{props.title} </h2>
+        <div className="expense-item__price">Rs. {props.amount}</div>
+      </div>
+      {/* <ExpenseDetails amount={props.amount} 
+title={props.title} />  */}
 
 
-function ExpenseItem(props){
-//now we acces the the outside of data
-    return <div className='expense-item'>
-        <div>{props.date.toISOString()}</div>
-        <div className='expense-item__description'>
-            <h2>{props.title}</h2>
-            <div className='expense-item__price'>${props.amount}</div>
-            <div className='expense-item__price'>{props.location}</div>
-            </div>
-    </div>
+      <button onClick={Clickhandler}>Dletet Expense</button>
+    </Card>
+  );
 }
-// we need to export thz function otherwise its only 
+// we need to export thz function otherwise its only
 //usable inside of file & thats not helpful us
 export default ExpenseItem;
