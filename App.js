@@ -1,8 +1,3 @@
-//line no 12 we shold write capital letter inside Because the simple rule which React applies
-//is that lowercase elements are built in HTML elements.So it will look for them as built in elements.
-//Whereas elements starting with an uppercase character are elements defined by you or some other developer.
-//So this is a custom made Component and we have to use the name which we use here in the import
-
 //'components' is a floder name & 'Expenseitem' is a function
 
 //import ExpenseItem from "./components/Expenseitem";
